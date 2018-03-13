@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jukebox Starter</title>
+</head>
+
+<body>
+    <!-- CSS Sheet-->
+    <style type="text/css">
+
+    </style>
+    <header>
+        <div class="welcome">
+            <h1>
+                Welcome to the NYCDA Jukebox portal.
+            </h1>
+        </div>
+    </header>
+    <div class="audiolibrary">
+        <p>Click the button to play the song of your choosing.</p>
+        <div class="songs">
+            <button id="" onclick="jukebox.play()"> Drake Ft. Sampha</button>
+            <p id="songinfo"></p>
+            <audio src="songs/Drake - Too Much feat  Sampha.mp3" id="songclass">
+            </audio>
+        </div>
+        <div class="songs">
+            <button id="" onclick="jukebox.play()"> Sample Mp3</button>
+            <p class="songinfo"></p>
+        </div>
+        <div class="songs">
+            <button id="" onclick="jukebox.play()"> Tycho</button>
+            <p class="songinfo"></p>
+        </div>
+        <div class="songs">
+            <button id="" onclick="jukebox.play()"> Sample Mp3 2 </button>
+            <p class="songinfo"></p>
+        </div>
+        <div class="songs">
+            <button id="" onclick="jukebox.play()">Sango</button>
+            <p class="songinfo"></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //var audiofiles = document.createElement('audio');
+    //if (audiofiles.canPlayType('audio/mpeg')){
+    //  audiofiles.setAttribute('src',)
+    //}
+    ////* Songs on DOM */////////////
+
+    var audio = document.getElementById('songclass');
+
+    /* Functions */
+
+    /* Play */
+
+    var audiofiles = [{
+            id: 0,
+            src: "songs/Drake - Too Much feat  Sampha.mp3"
+        },
+        {
+            id: 1,
+            src: "songs/SampleAudio_0.4mb.mp3"
+        }, {
+            id: 2,
+            src: "songs/Tycho - The Disconnect.mp3"
+
+        }, {
+            id: 3,
+            src: "songs/SampleAudio_0.7mb.mp3"
+        }, {
+            id: 4,
+            src: "songs/Sango - Just Hold On For a Second.mp3"
+        }
+    ];
+    //var audiofiles = [drake, sample2, sample2, tycho, sango];
+    //var songindex = 0;
+
+
+
+
+    var jukebox = {
+        currentSong: 0,
+        song: audiofiles,
+        play: function() {
+            audio.src = this.song[this.currentSong].src;
+            console.log("Now Playing:" + song.src.substring(6, ));
+            audio.play();
+        },
+        nextsong: function() {
+            this.currentSong++;
+            audio.src = this.song[this.currentSong].src;
+            audio.play();
+
+            console.log("Now Playing:" + song.src.substring(6, ));
+        }
+    };
+    /*
+            songname: function() {
+                var songinfo = document.getElementById("songinfo");
+                console.log("this is songinfo: " + songinfo);
+                console.log("this is audiofiles.src: " + audiofiles[0]);
+
+                // document.getElementById("songinfo").innerHTML = console.log(audiofiles.src - "songs/" + -".mp3");
+            },
+            play: stream = {
+                nowstreaming: function() {
+                    return audiofiles[songindex].play;
+                },
+                stop: function stopmusic() {
+                    audiofiles.src = audiofiles.src;
+                },
+                pause: function pausemusic() {
+                    audiofiles.src.pause();
+                }
+
+            }
+        };
+
+        /*return playmusic;
+                //return displaysonginfo;
+            }
+            var playmusic = function play(){
+
+            }
+    /* Pause */
+
+    /* Stop */
+    /* List Song Info */
+    /*
+        var songnames = function getSongName (i) {
+            return 
+        }
+        var displaysonginfo = function display(){
+            document.getElementById("songinfo").innerHTML =
+        }
+*/
+    </script>
+</body>
+
+</html>
