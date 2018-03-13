@@ -21,25 +21,25 @@
     <div class="audiolibrary">
         <p>Click the button to play the song of your choosing.</p>
         <div class="songs">
-            <button id="" onclick="jukebox.play()"> Drake Ft. Sampha</button>
+            <button id="song1" onclick="jukebox.play();"> Play</button>
             <p id="songinfo"></p>
-            <audio src="songs/Drake - Too Much feat  Sampha.mp3" id="songclass">
+            <audio src="songs/Drake - Too Much feat  Sampha.mp3" id="musicfile1">
             </audio>
         </div>
         <div class="songs">
-            <button id="" onclick="jukebox.play()"> Sample Mp3</button>
+            <button id="song2" onclick="jukebox.nextsong();"> Next Song </button>
             <p class="songinfo"></p>
         </div>
         <div class="songs">
-            <button id="" onclick="jukebox.play()"> Tycho</button>
+            <button id="song3" onclick="jukebox.nextsong();"> Tycho</button>
             <p class="songinfo"></p>
         </div>
         <div class="songs">
-            <button id="" onclick="jukebox.play()"> Sample Mp3 2 </button>
+            <button id="song4" onclick="jukebox.nextsong();"> Sample Mp3 2 </button>
             <p class="songinfo"></p>
         </div>
         <div class="songs">
-            <button id="" onclick="jukebox.play()">Sango</button>
+            <button id="song5" onclick="jukebox.nextsong();">Sango</button>
             <p class="songinfo"></p>
         </div>
     </div>
@@ -50,7 +50,7 @@
     //}
     ////* Songs on DOM */////////////
 
-    var audio = document.getElementById('songclass');
+    var audio = document.getElementById('musicfile1');
 
     /* Functions */
 
@@ -86,7 +86,7 @@
         song: audiofiles,
         play: function() {
             audio.src = this.song[this.currentSong].src;
-            console.log("Now Playing:" + song.src.substring(6, ));
+            console.log("Now Playing:" + audio.src.substring(6,));//.substring(6, ));
             audio.play();
         },
         nextsong: function() {
@@ -94,7 +94,8 @@
             audio.src = this.song[this.currentSong].src;
             audio.play();
 
-            console.log("Now Playing:" + song.src.substring(6, ));
+            console.log("Now Playing:" + audio.src.substring(6, ));
+
         }
     };
     /*
