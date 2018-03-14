@@ -14,7 +14,7 @@
     <header>
         <div class="welcome">
             <h1>
-                Welcome to the NYCDA Jukebox portal.
+                Jukebox
             </h1>
         </div>
     </header>
@@ -31,11 +31,11 @@
             <p class="songinfo"></p>
         </div>
         <div class="songs">
-            <button id="song3" onclick="jukebox.nextsong();"> Tycho</button>
+            <button id="song3" onclick="jukebox.restart();"> Restart Song</button>
             <p class="songinfo"></p>
         </div>
         <div class="songs">
-            <button id="song4" onclick="jukebox.nextsong();"> Sample Mp3 2 </button>
+            <button id="song4" onclick="jukebox.stop();"> Stop </button>
             <p class="songinfo"></p>
         </div>
         <div class="songs">
@@ -58,21 +58,26 @@
 
     var audiofiles = [{
             id: 0,
-            src: "songs/Drake - Too Much feat  Sampha.mp3"
+            src: "songs/Drake - Too Much feat  Sampha.mp3",
+            title: "Drake - Too Much feat  Sampha",
         },
         {
             id: 1,
-            src: "songs/SampleAudio_0.4mb.mp3"
+            src: "songs/SampleAudio_0.4mb.mp3",
+            title: "SampleAudio_0.4mb",
         }, {
             id: 2,
-            src: "songs/Tycho - The Disconnect.mp3"
+            src: "songs/Tycho - The Disconnect.mp3",
+            title: "Tycho - The Disconnect",
 
         }, {
             id: 3,
-            src: "songs/SampleAudio_0.7mb.mp3"
+            src: "songs/SampleAudio_0.7mb.mp3",
+            title: "SampleAudio_0.7mb.mp3",
         }, {
             id: 4,
-            src: "songs/Sango - Just Hold On For a Second.mp3"
+            src: "songs/Sango - Just Hold On For a Second.mp3",
+            title: "Sango - Just Hold On For a Second"
         }
     ];
     //var audiofiles = [drake, sample2, sample2, tycho, sango];
@@ -86,58 +91,30 @@
         song: audiofiles,
         play: function() {
             audio.src = this.song[this.currentSong].src;
-            console.log("Now Playing:" + audio.src.substring(6,));//.substring(6, ));
+            audioabb = this.song[this.currentSong];
+            console.log("Now Playing:" + " " + audioabb.title); //.substring(6, ));
             audio.play();
         },
         nextsong: function() {
             this.currentSong++;
-            audio.src = this.song[this.currentSong].src;
-            audio.play();
-
-            console.log("Now Playing:" + audio.src.substring(6, ));
+            console.log(this.currentSong);
+            if (this.currentSong >= this.song.length) {
+                this.currentSong = 0;
+                audioabb = this.song[this.currentSong];
+                audio.src = this.song[this.currentSong].src
+                console.log("Audio Index is" + this.currentSong);
+                console.log("Now Playing:" + " " + audioabb.title);
+                audio.play();
+            } else if (this.currentSong != this.song.length) {
+                audioabb = this.song[this.currentSong];
+                audio.src = this.song[this.currentSong].src;
+                console.log("audio.src=" + audio.src);
+                audio.play();
+                console.log("Now Playing:" + " " + audioabb.title);
+            }
 
         }
     };
-    /*
-            songname: function() {
-                var songinfo = document.getElementById("songinfo");
-                console.log("this is songinfo: " + songinfo);
-                console.log("this is audiofiles.src: " + audiofiles[0]);
-
-                // document.getElementById("songinfo").innerHTML = console.log(audiofiles.src - "songs/" + -".mp3");
-            },
-            play: stream = {
-                nowstreaming: function() {
-                    return audiofiles[songindex].play;
-                },
-                stop: function stopmusic() {
-                    audiofiles.src = audiofiles.src;
-                },
-                pause: function pausemusic() {
-                    audiofiles.src.pause();
-                }
-
-            }
-        };
-
-        /*return playmusic;
-                //return displaysonginfo;
-            }
-            var playmusic = function play(){
-
-            }
-    /* Pause */
-
-    /* Stop */
-    /* List Song Info */
-    /*
-        var songnames = function getSongName (i) {
-            return 
-        }
-        var displaysonginfo = function display(){
-            document.getElementById("songinfo").innerHTML =
-        }
-*/
     </script>
 </body>
 
