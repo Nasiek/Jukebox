@@ -31,15 +31,11 @@
             <p class="songinfo"></p>
         </div>
         <div class="songs">
-            <button id="song3" onclick="jukebox.restart();"> Restart Song</button>
+            <button id="song3" onclick="jukebox.pause();"> Pause </button>
             <p class="songinfo"></p>
         </div>
         <div class="songs">
             <button id="song4" onclick="jukebox.stop();"> Stop </button>
-            <p class="songinfo"></p>
-        </div>
-        <div class="songs">
-            <button id="song5" onclick="jukebox.nextsong();">Sango</button>
             <p class="songinfo"></p>
         </div>
     </div>
@@ -113,6 +109,13 @@
                 console.log("Now Playing:" + " " + audioabb.title);
             }
 
+        },
+        pause: function() {
+            audio.pause();
+        },
+        stop: function() {
+            this.pause();
+            this.currentTime = 0.0;
         }
     };
     </script>
