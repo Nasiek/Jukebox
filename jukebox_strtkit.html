@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jukebox Starter</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,11 +23,30 @@
 body {
         background-color: grey;
     }
+    /*.songs{
+        margin: 0 auto;
+    }*/
+
+    /#song1,
+    #song2,
+    #song3,
+    #song4 {
+        margin-left: 5px;
+    }
+
+    .welcome {
+        width: 150px;
+        height: 65px;
+        margin-left: 450px;
+        position: static;
+        text-align: center;
+        background-color: antiquewhite;
+        margin-bottom: 5px;
+    }
 
     h1 {
-        margin-left: 450px;
+        padding-top: 2.5px;
         margin-top: 30px;
-        background-color: antiquewhite;
     }
 
     .audiolibrary {
@@ -45,11 +65,14 @@ body {
         height: 70px;
         padding: 10px 16px;
         margin-left: 10px;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 1.33;
         border-radius: 35px;
         display: inline;
         float: right;
+        -webkit-text-stroke: 1px black;
+        transition-duration: 0.4s;
+        cursor: pointer;
     }
     /*    #song1, #song2, #song3, #song4 {
         padding: 10px;*/
@@ -122,7 +145,7 @@ body {
             audio.src = this.song[this.currentSong].src;
             audioabb = this.song[this.currentSong];
             console.log("Now Playing:" + " " + audioabb.title); //.substring(6, ));
-            document.getElementById("songnames").innerHTML = "Now Playing:" + " " +audioabb.title;
+            document.getElementById("songnames").innerHTML = "Now Playing:" + " " + audioabb.title;
             audio.play();
         },
         nextsong: function() {
@@ -134,7 +157,7 @@ body {
                 audio.src = this.song[this.currentSong].src
                 console.log("Audio Index is" + this.currentSong);
                 console.log("Now Playing:" + " " + audioabb.title);
-                document.getElementById("songnames").innerHTML = "Now Playing:" + " " +audioabb.title;
+                document.getElementById("songnames").innerHTML = "Now Playing:" + " " + audioabb.title;
                 audio.play();
             } else if (this.currentSong != this.song.length) {
                 audioabb = this.song[this.currentSong];
@@ -142,19 +165,39 @@ body {
                 console.log("audio.src=" + audio.src);
                 audio.play();
                 console.log("Now Playing:" + " " + audioabb.title);
-                document.getElementById("songnames").innerHTML = "Now Playing:" + " " +audioabb.title;
+                document.getElementById("songnames").innerHTML = "Now Playing:" + " " + audioabb.title;
             }
 
         },
+        /*Pauses song and returns the number of seconds progressed*/
         pause: function() {
             audio.pause();
+            if (audio.currentTime > 0 /*&& audio.pause() == true*/) {
+                pausedat = audio.currentTime;
+                console.log(pausedat);
+                //pausedat.play();
+                //function resume(pausedat) {
+                //pausedat.play();   
+            };
         },
         stop: function() {
             this.pause();
             this.currentTime = 0.0;
         }
+        /*resumeplay: function() {
+            if (audio.currentTime > 0 && this.pause== true) {
+                pausedat = audio.currentTime;
+                console.log(pausedat);
+                pausedat.play();
+                //function resume(pausedat) {
+                pausedat.play();   
+            };*/
+        };
+    
 
-    };
+
+
+    
     </script>
 </body>
 
