@@ -142,7 +142,7 @@ body {
         currentSong: 0,
         song: audiofiles,
         play: function() {
-            audio.src = this.song[this.currentSong].src;
+            //audio.src = this.song[this.currentSong].src;
             audioabb = this.song[this.currentSong];
             console.log("Now Playing:" + " " + audioabb.title); //.substring(6, ));
             document.getElementById("songnames").innerHTML = "Now Playing:" + " " + audioabb.title;
