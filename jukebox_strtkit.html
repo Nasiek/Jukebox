@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Jukebox Starter</title>
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+   
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     </header>
     <style type="text/css">
 body {
-        background-color: grey;
+        background-image: url("tigerbackground.jpg");
     }
     /*.songs{
         margin: 0 auto;
@@ -41,7 +42,9 @@ body {
         position: static;
         text-align: center;
         background-color: antiquewhite;
+        border-radius: 30px;
         margin-bottom: 5px;
+        color: #0000CC;
     }
 
     h1 {
@@ -56,26 +59,46 @@ body {
         border: double;
         border-radius: 15%;
         display: inline-block;
-        margin-left: 250px;
-        /*margin: 0 auto;*/
+        margin-left: 280px;
     }
 
     button {
         width: 70px;
         height: 70px;
         padding: 10px 16px;
-        margin-left: 10px;
-        font-size: 20px;
+        margin-left: 8px;
+        font-size: 18px;
         line-height: 1.33;
         border-radius: 35px;
-        display: inline;
+        display: inline-block;
         float: right;
         -webkit-text-stroke: 1px black;
         transition-duration: 0.4s;
         cursor: pointer;
+        color: #0000CC;
+        background-color: #5DADE2;
     }
-    /*    #song1, #song2, #song3, #song4 {
-        padding: 10px;*/
+
+    button:active {
+        background-color: #FF8A65;
+        border: 1px solid #8BC34A; 
+    }
+    button:hover{
+      background-color: #BCAAA4;
+        border: 1px solid #8BC34A;   
+    }
+
+    #songnames {
+        margin-left: 100px;
+        color: #F9E79F;
+        font-family: "Georgia Serif";
+        font-size: 20px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 900;
+        line-height: 20px;
+/*        background-color: ; */
+    }
 }
     </style>
     <div class="audiolibrary">
@@ -172,7 +195,7 @@ body {
         /*Pauses song and returns the number of seconds progressed*/
         pause: function() {
             audio.pause();
-            if (audio.currentTime > 0 /*&& audio.pause() == true*/) {
+            if (audio.currentTime > 0 /*&& audio.pause() == true*/ ) {
                 pausedat = audio.currentTime;
                 console.log(pausedat);
                 //pausedat.play();
@@ -192,12 +215,7 @@ body {
                 //function resume(pausedat) {
                 pausedat.play();   
             };*/
-        };
-    
-
-
-
-    
+    };
     </script>
 </body>
 
